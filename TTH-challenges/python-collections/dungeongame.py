@@ -62,7 +62,7 @@ while True:
     if move in moves:
         player = move_player(player, move)
     else:
-        print("You bumped into a wall ! ")
+        print("You bumped into a wall !!! ")
         continue
     if player == door:
         print("You escaped!")

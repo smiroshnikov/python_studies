@@ -54,7 +54,8 @@ while True:
     print("You hear a hungry growling nearby...")
     print("you are currently in a room {} ".format(player))  # fill in with player position
     print("you can move {}".format(moves))  # fill in available moves
-    move = input("> ")
+    # move = input("> ")
+    move = raw_input("> ")
     move = move.upper()
     if move == 'QUIT':
         break

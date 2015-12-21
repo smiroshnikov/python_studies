@@ -8,7 +8,7 @@ logging.basicConfig(filename=' better.log', level=logging.DEBUG)
 # logging.critical("FUCK ! this is BAD!")
 # logging.debug("Resetting formation...")
 
-number = random.choice(range(1, 1000))
+number = random.choice(range(1, 100))
 print("Hey! you have no idea what number i have picked!")
 logging.info("number was {}".format(number))
 

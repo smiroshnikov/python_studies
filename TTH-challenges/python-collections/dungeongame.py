@@ -47,15 +47,29 @@ def get_moves(player):  # far from being complete # 0,2
     return MOVES
 
 
+def draw_map(player):
+    tile = '§'
+    for cell in CELLS:
+        if cell == player:
+            print('{}'.format('x'), end='')
+        else:
+            print(tile.format('_'), end='')
+
+
+"""" game begins """
+
+
 monster, door, player = get_locations()
+print("WELCOME TO THE DUNGEON !!!!!")
 
 while True:
     moves = get_moves(player)
+    draw_map(player)
     print("You hear a hungry growling nearby...")
     print("you are currently in a room {} ".format(player))  # fill in with player position
     print("you can move {}".format(moves))  # fill in available moves
-    # move = input("> ")
-    move = raw_input("> ")
+    move = input("> ")
+    #    move = raw_input("> ")
     move = move.upper()
     if move == 'QUIT':
         break

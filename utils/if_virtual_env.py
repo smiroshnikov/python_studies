@@ -1,6 +1,8 @@
 import sys
 import time
 
+"""" aint working withing Conda virtual ENV """
+
 print ("\nThis script determines if executed inside virtual env!")
 print "Wait : %s" % time.ctime()
 time.sleep(3)

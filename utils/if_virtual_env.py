@@ -1,7 +1,7 @@
 import sys
 import time
 
-"""" Ain't working withing Conda virtual ENV """
+"""" Ain't working withing conda virtual ENV """
 
 print ("\nThis script determines if executed inside virtual env!")
 print "Wait : %s" % time.ctime()

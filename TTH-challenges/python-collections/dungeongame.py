@@ -1,6 +1,7 @@
 import random
 
-CELLS = [(0, 2), (1, 2), (2, 2), (3, 2),
+CELLS = [(0, 3), (1, 3), (2, 3), (3, 3),
+         (0, 2), (1, 2), (2, 2), (3, 2),
          (0, 1), (1, 1), (2, 1), (3, 1),
          (0, 0), (1, 0), (2, 0), (3, 0)]
 
@@ -41,7 +42,7 @@ def get_moves(player):  # far from being complete # 0,2
         MOVES.remove('RIGHT')
     if player[1] == 0:
         MOVES.remove('DOWN')
-    if player[1] == 2:
+    if player[1] == 3:
         MOVES.remove('UP')
     return MOVES
 

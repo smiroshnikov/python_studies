@@ -13,7 +13,7 @@
 <body>
 
 <form action="index.html" method="post">
-    <h1>SDCC deployment & automation</h1>
+    <h1>SDCC deployment</h1>
 
     <fieldset>
         <legend><span class="number">1</span>Deployment</legend>
@@ -60,8 +60,8 @@
         <select id="test_type" name="test_type">
 
             <optgroup label="GUI based tests">
-                <option value="short_sanity">short sanity - asset, user, account CRUD</option>
-                <option value="full_sanity">full sanity - including MSSP</option>
+                <option value="short_sanity">Short sanity - asset, user, account CRUD</option>
+                <option value="full_sanity">Full sanity - including MSSP</option>
             </optgroup>
 
             <optgroup label="API based tests">
@@ -74,6 +74,15 @@
 
     <fieldset>
         <legend><span class="number">3</span>Data Generation</legend>
+        <label for="data_gen_type">Data to generate</label>
+        <select id="data_gen_type" name="data_type">
+            <option value="traffic_sim">Traffic simulator</option>
+            <option value="netflow_sim">Netflow simulator</option>
+            <option value="attack_sim">Attack simulator</option>
+            <option value="all_sim">Blast me with Data!</option>
+
+        </select>
+
 
     </fieldset>
 

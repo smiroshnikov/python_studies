@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/main.css">
+    <style type="text/css">
+        #test_type {
+        }
+    </style>
 </head>
 
 
@@ -19,8 +23,10 @@
         <legend><span class="number">1</span>Deployment</legend>
         <label for="deploy_type">Deployment type</label>
         <select id="deploy_type" name="install_type">
-            <optgroup label="Centos">
-                <option value="centos_install">Centos installation</option>
+            <optgroup label="Linux only">
+                <option value="centos_install">Centos 6.5</option>
+                <option value="centos_install">Ubuntu server + GNS3 virtual SC</option>
+
             </optgroup>
 
             <optgroup label="SDCC">
@@ -56,10 +62,11 @@
     <fieldset>
 
         <legend><span class="number">2</span>Testing options</legend>
-        <label for="deploy_type">Tests</label>
+        <label for="test_type">Automated tests</label>
         <select id="test_type" name="test_type">
 
             <optgroup label="GUI based tests">
+                <option value="no_test">Fuck testing, my code is perfect as is!</option>
                 <option value="short_sanity">Short sanity - asset, user, account CRUD</option>
                 <option value="full_sanity">Full sanity - including MSSP</option>
             </optgroup>
@@ -74,12 +81,13 @@
 
     <fieldset>
         <legend><span class="number">3</span>Data Generation</legend>
-        <label for="data_gen_type">Data to generate</label>
+        <label for="data_gen_type">Mock data </label>
         <select id="data_gen_type" name="data_type">
+            <option value="no_sim">No data - empty env</option>
             <option value="traffic_sim">Traffic simulator</option>
             <option value="netflow_sim">Netflow simulator</option>
             <option value="attack_sim">Attack simulator</option>
-            <option value="all_sim">Blast me with Data!</option>
+            <option value="all_sim">Traffic + nFlow + attack</option>
 
         </select>
 

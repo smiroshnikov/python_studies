@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up Form</title>
+    <title>SDCC Web deployment centre</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/main.css">
@@ -11,39 +11,74 @@
 
 
 <body>
+
 <form action="index.html" method="post">
-    <h1>SDCC deployment</h1>
-    <!-- id is a tag needed to target specific elements with JS -->
-    <!-- name is something that we pass to the server  -->
-    <!--<input type="text" id="name" name="user_name"> -->
-    <fieldset>
-        <legend><span class="number">1</span>SDCC part</legend>
-        <label for="mail">SecurityDAM email</label>
-        <!-- labels match id -->
-        <input type="email" id="mail" name="user_email">
-
-        <label for="secret_password">password = "123456"</label>
-        <input type="password" id="secret_password" name="user_password">
-    </fieldset>
+    <h1>SDCC deployment & automation</h1>
 
     <fieldset>
-        <legend><span class="number">2</span>Deployment options</legend>
+        <legend><span class="number">1</span>Deployment</legend>
+        <label for="deploy_type">Deployment type</label>
         <select id="deploy_type" name="install_type">
-            <option value="centos_install">Centos installation</option>
-            <option value="singe_nod_install">Single nod installation</option>
-            <option value="three_nod_install">Three nod installation</option>
-            <option value="radware_singe_nod_install">Radware single nod installation</option>
-            <option value="radware_three_nod_install">Radware three nod installation</option>
-            <option value="radware_ha_7_install">Radware HA 7 machines</option>
+            <optgroup label="Centos">
+                <option value="centos_install">Centos installation</option>
+            </optgroup>
+
+            <optgroup label="SDCC">
+                <option value="singe_nod_install">SDCC single nod installation</option>
+                <option value="three_nod_install">SDCC three nod installation</option>
+            </optgroup>
+
+            <optgroup label="Radware portal">
+                <option value="radware_singe_nod_install">Radware single nod installation</option>
+                <option value="radware_three_nod_install">Radware three nod installation</option>
+                <option value="radware_ha_7_install">Radware HA 7 machines</option>
+            </optgroup>
 
         </select>
-        <!--    <legend><span class="number">2</span>Tutorial part</legend>
-            <label for="bio">User comment</label>
 
-            <textarea id="comment" name="user_comment"></textarea> -->
+        <label for="hypervisor_type">Hypervisor</label>
+        <select id="hypervisor_type" name="vm_type">
+            <optgroup label="Xen">
+                <option value="xensrv1">Xen Server 1 10.20.4.234</option>
+                <option value="xensrv2">Xen Server 2 10.20.4.236</option>
+                <option value="xensrv3">Xen Server 3 10.20.4.251</option>
+            </optgroup>
+
+            <optgroup label="VMWare">
+                <option value="vmsrv1">VMWare ESXi 10.20.4.234</option>
+                <option value="vmsrv1">VMWare ESXi 10.20.4.236</option>
+            </optgroup>
+
+        </select>
+
+    </fieldset> <!--Deployment -->
+
+    <fieldset>
+
+        <legend><span class="number">2</span>Testing options</legend>
+        <label for="deploy_type">Tests</label>
+        <select id="test_type" name="test_type">
+
+            <optgroup label="GUI based tests">
+                <option value="short_sanity">short sanity - asset, user, account CRUD</option>
+                <option value="full_sanity">full sanity - including MSSP</option>
+            </optgroup>
+
+            <optgroup label="API based tests">
+                <option value="api1">API test 1</option>
+                <option value="api2">API test 2</option>
+            </optgroup>
+
+        </select>
+    </fieldset> <!--Testing -->
+
+    <fieldset>
+        <legend><span class="number">3</span>Data Generation</legend>
+
     </fieldset>
 
-    <button type="submit">LOG IN!</button>
+
+    <button type="submit">DEPLOY!</button>
     <!-- submit type actually sends data to the server -->
 
 </form>

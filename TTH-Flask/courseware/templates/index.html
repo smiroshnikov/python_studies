@@ -4,8 +4,86 @@
 
 {% block content %}
 <h1>{{ name }} ! Welcome to automation deployment web center ! </h1>
-{% endblock %}
+    <fieldset>
+        <legend><span class="number">1</span>Deployment</legend>
+        <label for="deploy_type">Deployment type</label>
+        <select id="deploy_type" name="install_type">
+            <optgroup label="Linux only">
+                <option value="centos_install">Centos 6.5</option>
+                <option value="centos_install">Ubuntu server + GNS3 virtual SC</option>
 
+            </optgroup>
+
+            <optgroup label="SDCC">
+                <option value="singe_nod_install">SDCC single nod installation</option>
+                <option value="three_nod_install">SDCC three nod installation</option>
+            </optgroup>
+
+            <optgroup label="Radware portal">
+                <option value="radware_singe_nod_install">Radware single nod installation</option>
+                <option value="radware_three_nod_install">Radware three nod installation</option>
+                <option value="radware_ha_7_install">Radware HA 7 machines</option>
+            </optgroup>
+
+        </select>
+
+        <label for="hypervisor_type">Hypervisor</label>
+        <select id="hypervisor_type" name="vm_type">
+            <optgroup label="Xen">
+                <option value="xensrv1">Xen Server 1 10.20.4.234</option>
+                <option value="xensrv2">Xen Server 2 10.20.4.236</option>
+                <option value="xensrv3">Xen Server 3 10.20.4.251</option>
+            </optgroup>
+
+            <optgroup label="VMWare">
+                <option value="vmsrv1">VMWare ESXi 10.20.4.234</option>
+                <option value="vmsrv1">VMWare ESXi 10.20.4.236</option>
+            </optgroup>
+
+        </select>
+
+    </fieldset> <!--Deployment -->
+
+    <fieldset>
+
+        <legend><span class="number">2</span>Testing options</legend>
+        <label for="test_type">Automated tests</label>
+        <select id="test_type" name="test_type">
+
+            <optgroup label="GUI based tests">
+                <option value="no_test">Fuck testing, my code is perfect as is!</option>
+                <option value="short_sanity">Short sanity - asset, user, account CRUD</option>
+                <option value="full_sanity">Full sanity - including MSSP</option>
+            </optgroup>
+
+            <optgroup label="API based tests">
+                <option value="api1">API test 1</option>
+                <option value="api2">API test 2</option>
+            </optgroup>
+
+        </select>
+    </fieldset> <!--Testing -->
+
+    <fieldset>
+        <legend><span class="number">3</span>Data Generation</legend>
+        <label for="data_gen_type">Mock data </label>
+        <select id="data_gen_type" name="data_type">
+            <option value="no_sim">No data - empty env</option>
+            <option value="traffic_sim">Traffic simulator</option>
+            <option value="netflow_sim">Netflow simulator</option>
+            <option value="attack_sim">Attack simulator</option>
+            <option value="all_sim">Traffic + nFlow + attack</option>
+        </select>
+
+
+    </fieldset>
+
+
+    <button type="submit">FIRE!</button>
+    <!-- submit type actually sends data to the server -->
+
+    </form>
+{% endblock %}
 {% block scripts %}
 <script src="/static/scripts.js"></script>
 {% endblock %}

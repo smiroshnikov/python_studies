@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SDCC Web deployment centre</title>
+    <title>SDCC QA Web </title>
     <link rel="stylesheet" href="css/normalize.css">
     <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/main.css">
@@ -12,35 +12,39 @@
         }
     </style>
 </head>
-
-
 <body>
-
 <form action="index.html" method="post">
-    <h1>SDCC deployment</h1>
+    <h1>SDCC automation portal</h1>
 
     <fieldset>
         <legend><span class="number">1</span>Deployment</legend>
         <label for="deploy_type">Deployment type</label>
         <select id="deploy_type" name="install_type">
-            <optgroup label="Linux only">
-                <option value="centos_install">Centos 6.5</option>
-                <option value="centos_install">Ubuntu server + GNS3 virtual SC</option>
-
-            </optgroup>
 
             <optgroup label="SDCC">
-                <option value="singe_nod_install">SDCC single nod installation</option>
-                <option value="three_nod_install">SDCC three nod installation</option>
+                <option value="singe_nod_install"> Single node installation</option>
+                <option value="three_nod_install">Three node installation</option>
+                <option value="single_nod_gns">[PREMIUM] single node with multiple backends (GNS3)</option>
+                <option value="three_nod_gns">[PREMIUM] three node with multiple backends (GNS3)</option>
+
             </optgroup>
 
             <optgroup label="Radware portal">
-                <option value="radware_singe_nod_install">Radware single nod installation</option>
-                <option value="radware_three_nod_install">Radware three nod installation</option>
-                <option value="radware_ha_7_install">Radware HA 7 machines</option>
+                <option value="radware_singe_nod_install">Radware single node installation</option>
+                <option value="radware_three_nod_install">Radware three node installation</option>
+                <option value="radware_ha_7_install">Radware HA mongo replica + linux cluster 7 machines</option>
+            </optgroup>
+            <optgroup label="Linux only">
+                <option value="centos_install">Centos 6.5</option>
             </optgroup>
 
         </select>
+
+        <label>Branch :</label>
+        <input type="radio" id="master" value="master" name="branch"><label for="master"
+                                                                            class="light">Master</label><br>
+        <input type="radio" id="custom_branch" value="custom" name="branch"><label for="custom_branch" class="light">[PREMIUM]
+        Custom branch</label>
 
         <label for="hypervisor_type">Hypervisor</label>
         <select id="hypervisor_type" name="vm_type">
@@ -68,7 +72,7 @@
             <optgroup label="GUI based tests">
                 <option value="no_test">Fuck testing, my code is perfect as is!</option>
                 <option value="short_sanity">Short sanity - asset, user, account CRUD</option>
-                <option value="full_sanity">Full sanity - including MSSP</option>
+                <option value="full_sanity">[PREMIUM] Full sanity - including MSSP</option>
             </optgroup>
 
             <optgroup label="API based tests">
@@ -91,7 +95,7 @@
         </select>
 
 
-    </fieldset>
+    </fieldset> <!--Data -->
 
 
     <button type="submit">FIRE!</button>

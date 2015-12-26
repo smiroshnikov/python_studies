@@ -8,15 +8,43 @@
     <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/main.css">
 </head>
+
+
 <body>
 <form action="index.html" method="post">
-    <h1>Sign Up!</h1>
-    <!--This is a comment. Comments are not displayed in the browser-->
+    <h1>SDCC deployment</h1>
+    <!-- id is a tag needed to target specific elements with JS -->
+    <!-- name is something that we pass to the server  -->
+    <!--<input type="text" id="name" name="user_name"> -->
+    <fieldset>
+        <legend><span class="number">1</span>SDCC part</legend>
+        <label for="mail">SecurityDAM email</label>
+        <!-- labels match id -->
+        <input type="email" id="mail" name="user_email">
 
-    <!--    <input type="text" id="name" name="user_name"> -->
-    <input type="email" id="mail" name="user_email">
-    <input type="password" id="secret_password" name="user_password">
-    <!--    <textarea id = "bio" name = "user_bio" ></textarea> -->
+        <label for="secret_password">password = "123456"</label>
+        <input type="password" id="secret_password" name="user_password">
+    </fieldset>
+
+    <fieldset>
+        <legend><span class="number">2</span>Deployment options</legend>
+        <select id="deploy_type" name="install_type">
+            <option value="centos_install">Centos installation</option>
+            <option value="singe_nod_install">Single nod installation</option>
+            <option value="three_nod_install">Three nod installation</option>
+            <option value="radware_singe_nod_install">Radware single nod installation</option>
+            <option value="radware_three_nod_install">Radware three nod installation</option>
+            <option value="radware_ha_7_install">Radware HA 7 machines</option>
+
+        </select>
+        <!--    <legend><span class="number">2</span>Tutorial part</legend>
+            <label for="bio">User comment</label>
+
+            <textarea id="comment" name="user_comment"></textarea> -->
+    </fieldset>
+
+    <button type="submit">LOG IN!</button>
+    <!-- submit type actually sends data to the server -->
 
 </form>
 

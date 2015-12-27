@@ -24,8 +24,10 @@
             <optgroup label="SDCC">
                 <option value="singe_nod_install"> Single node installation</option>
                 <option value="three_nod_install">Three node installation</option>
-                <option value="single_nod_gns">[PREMIUM] single node with multiple backends (GNS3)</option>
-                <option value="three_nod_gns">[PREMIUM] three node with multiple backends (GNS3)</option>
+                <option style="color:red" value="single_nod_gns">[PREMIUM] single node with multiple backends (GNS3)
+                </option>
+                <option style="color:red" value="three_nod_gns">[PREMIUM] three node with multiple backends (GNS3)
+                </option>
 
             </optgroup>
 
@@ -43,7 +45,8 @@
         <label>Branch :</label>
         <input type="radio" id="master" value="master" name="branch"><label for="master"
                                                                             class="light">Master</label><br>
-        <input type="radio" id="custom_branch" value="custom" name="branch"><label for="custom_branch" class="light">[PREMIUM]
+        <input type="radio" id="custom_branch" value="custom" name="branch"><label style="color:red" for="custom_branch"
+                                                                                   class="light">[PREMIUM]
         Custom branch</label>
 
         <label for="hypervisor_type">Hypervisor</label>
@@ -55,8 +58,8 @@
             </optgroup>
 
             <optgroup label="VMWare">
-                <option value="vmsrv1">VMWare ESXi 10.20.4.234</option>
-                <option value="vmsrv1">VMWare ESXi 10.20.4.236</option>
+                <option style="color:red" value="vmsrv1">[PREMIUM] VMWare ESXi 10.20.4.234</option>
+                <option style="color:red" value="vmsrv1">[PREMIUM] VMWare ESXi 10.20.4.236</option>
             </optgroup>
 
         </select>
@@ -70,9 +73,9 @@
         <select id="test_type" name="test_type">
 
             <optgroup label="GUI based tests">
-                <option value="no_test">Fuck testing, my code is perfect as is!</option>
+                <option value="no_test"> Fuck testing,my code is perfect as is!</option>
                 <option value="short_sanity">Short sanity - asset, user, account CRUD</option>
-                <option value="full_sanity">[PREMIUM] Full sanity - including MSSP</option>
+                <option style="color:red" value="full_sanity">[PREMIUM] Full sanity - including MSSP</option>
             </optgroup>
 
             <optgroup label="API based tests">
@@ -91,10 +94,13 @@
             <option value="traffic_sim">Traffic simulator</option>
             <option value="netflow_sim">Netflow simulator</option>
             <option value="attack_sim">Attack simulator</option>
-            <option value="all_sim">[PREMIUM] traffic + nFlow + attack</option>
+            <option style="color:red" value="all_sim">[PREMIUM] traffic + nFlow + attack</option>
         </select>
-
-
+        <label>email notification :</label>
+        <input type="checkbox" id="agreement" value="user_agree" name="user_agree"><label class="light" for="agreement">alert
+        me when done</label><br>
+        <input type="checkbox" id="spambot" value="user_spam" name="user_spam"><label class="light" for="spambot">spam
+        me with product & feature updates</label>
     </fieldset> <!--Data -->
 
 

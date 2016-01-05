@@ -19,8 +19,13 @@ def my_link():
 @app.route('/another-link/')
 def another_link():
     print 'Now i got it all'
-    print os.popen('ls -la')
-    return "fuck!"
+    i = 1
+    if i == 1:
+        print("here i can perform a more complex logic ")
+        for element in range(0, 100):
+            element += 1
+            print(element)
+            return "this is  {}".format(element)
 
 
 if __name__ == '__main__':

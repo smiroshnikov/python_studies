@@ -1,7 +1,7 @@
 FUNCTIONALITY
 1) Branch
 2) Task status update
-3) Fail / Succes
+3) Fail / Success
 4) Xen free memory display
 
 ADS

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <!--Build Area -->
+    <form action="" method="POST" class="wrap no-top">
+        <div class="grid-100 row">
+            <div class="grid-30">
+                <div class="title">
+                    <input type="text" name="name" value="">
+                </div>
+            </div>
+            <div class="grid-70">
+                <div class="colors">
+                    <button class="btn">Update</button>
+                </div>
+            </div>
+            <div id="bear" class="grid-100">
+                <div class="bear-body"><img src="/static/img/bear_body.svg"/></div>
+                <div class="head"><img src="/static/img/bear_face.svg"/></div>
+                <div class="nose"><img src="/static/img/bear_nose.svg"/></div>
+            </div>
+            <div class="items">
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

@@ -11,8 +11,8 @@ def index(user_name='Sergei Miroshnikov'):
 
 
 @app.route("/add/<int:A>/<int:B>")
-def add(A=2, B=2):
-    passed_dict = {'number1': A, 'number2': B}
+def add(numA=2, numB=2):
+    passed_dict = {'number1': numA, 'number2': numB}
     return render_template("add.html", **passed_dict)  # unpacking dictionary
 
 

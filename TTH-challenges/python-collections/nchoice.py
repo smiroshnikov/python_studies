@@ -15,4 +15,4 @@ def nchoices(iterable, integer):
     return result_list
 
 
-print(nchoices([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 6))
+print(nchoices([1, 2, 'Name', 'Surname'], 169))

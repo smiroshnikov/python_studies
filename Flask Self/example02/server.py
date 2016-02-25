@@ -18,7 +18,7 @@ def my_link():
 
 @app.route('/another-link/')
 def another_link():
-    print 'Now i got it all'
+    print "Now i got it all"
     i = 1
     if i == 1:
         print("here i can perform a more complex logic ")

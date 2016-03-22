@@ -17,7 +17,7 @@ print device_type.endswith("h")
 a = "     Cisco Router     "
 print (a.strip())
 c = "$$$Cisco router$$$"
-c.strip("$")
+print ("***", c.strip("$"))
 print (a.replace(" ", ""))  # immutable
 print a
 d = "cisco,f5,brocade,nortel,hp,juniper"

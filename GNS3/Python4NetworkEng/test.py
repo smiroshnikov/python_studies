@@ -16,6 +16,9 @@ env.disable_known_hosts = True  # Accept new hosts without prompting to store ke
 env.no_keys = True
 
 
+# port to Mac
+
+
 @task
 def run_command(ip, command):  # fab run_command:10.20.4.25,"ls -lorthx" - # works !
     """

@@ -52,8 +52,7 @@ class Game:
         else:
             print("{} isnt attacking this turn ".format(self.monster))
 
-
-            # If so , tell the player
+            # If so, tell the player
             # Check if the player wants to dodge
             # If so , see if the dodge is successful
             # If it is , move on

@@ -1,49 +1,58 @@
 # if the number of possibilities is unknown - recursion should provide useful
 
+from tabulate import tabulate
+
+# region globals
 global GRID
+global sourceX, sourceY, destinationX, destinationY
+# endregion
 
-GRID1 = (('a', 'b', 'c', 'd', 'k', 'f'),
-         (0, 2, 2, 2, 3, 2),
-         (0, 2, 0, 1, 1, 2),
-         (0, 2, '$', 2, 1, 2),
-         (0, 2, 2, 2, 1, 2),
-         (0, 0, 1, 1, 1, 2),
-         ('2a', '2b', '2c', '2d', '2e', '2f'))
-
-global destX, destY, start_posX, start_posY
-
-start_posX = 3
-start_posY = 2
-destX = 0
-destY = 5
-
-GRID = ((0, 0, 0, 0, 0, 0),
+GRID = (('K', 0, 0, 0, 0, 0),
         (0, 2, 2, 2, 3, 2),
         (0, 2, 0, 0, 0, 2),
-        (0, 2, 0, 2, 0, 2),
+        (0, 2, 'Z', 2, 0, 2),
         (0, 2, 2, 2, 0, 2),
         (0, 0, 0, 0, 0, 2),
-        (2, 2, 2, 2, 2, 2))
+        (2, 2, 2, 2, 2, 'F'))
+
+sourceY = 3
+sourceX = 2
+destinationY = 0
+destinationX = 5
+
+previous_location = {1: sourceX,
+                     2: sourceY}
 
 
-def get_value(pos_x, pos_y):
-    return GRID[pos_x][pos_y]
+def get_value(y, x):
+    if x >= len(GRID[0]) or (y >= len(GRID) or (x < 0 or y < 0)):
+        return "Out of Range!"
+    return GRID[x][y]
 
 
-print get_value(destX, destY)
-
-
-def can_i_move_to(posX, posY, current_value):
-    # Invalid coordinates
-    if posX >= len(GRID[0]) or (posY >= len(GRID) or (posX < 0 or posY < 0)):
+def can_i_move_to(y, x):
+    """
+    :param x: x coordinate
+    :param y: y coordinate
+    :param current_value: value within (x,y) , will be compared to value @ destination
+    :return: True means we can move regression proceeds
+    :return: False means we cannot move , step out , stop
+    """
+    current_value = get_value(y, x)
+    if x >= len(GRID[0]) or (y >= len(GRID) or (x < 0 or y < 0)):
+        """
+            Invalid coordinates - out of matrix scope
+        """
         return False
 
-    if current_value == GRID(posX, posY):  # VALUE!
+    if current_value == (GRID[x][y]):  # movement possible
+        print "current value at source {},{} is equal {}"
         return True
 
     return False
 
 
+# region try_to_move
 def try_to_move(prevX, prevY, posX, posY):
     value = get_value(posX, posY)
     # exit condition
@@ -63,13 +72,14 @@ def try_to_move(prevX, prevY, posX, posY):
         if try_to_move(posX, posY, posX, posY + 1):
             return True
 
+    elif can_i_move_to(posX, posY - 1) & (posY - 1 != prevY):
+        if try_to_move(posX, posY, posX, posY - 1):
+            return True
 
-try_to_move(destX, destY, )
 
-elif can_i_move_to(posX, posY - 1) & (posY - 1 != prevY):
-if try_to_move(posX, posY, posX, posY - 1):
-    return True  # region Testing
+# endregion
 
+# region testing
 """
 print "This is last cell of first tuple"
 
@@ -89,3 +99,6 @@ print "this is {} X {} matrix".format(x_length, y_length)
 """
 
 # endregion
+
+print get_value(3,2)
+print tabulate(GRID)

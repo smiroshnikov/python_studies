@@ -6,14 +6,14 @@ starting_position = (4, 3)
 
 global destination
 
-destination = (0, 3)
+destination = (1, 6)
 
 
 def print_grid_sexy():
     """
     just a nice print for tuple
     """
-    print tabulate(GRID)
+    print tabulate(LEFTG)
 
 
 def get_value_from_grid(x, y):
@@ -48,44 +48,27 @@ def if_destination_reached(x, y, x_destination, y_destination):
         return False
 
 
-def move_down(x, y):
+def move(x, y):
     # TODO replace with for loop
-
+    print "my current position is ({},{})".format(x, y)
     if if_destination_reached(x, y, destination[0], destination[1]):
         print "Tada!"
 
     elif if_eligible_to_move(x, y, x, y + 1):  # Down!
-        print "...moving DOWN"
         new_position = update_current_position(x, y + 1)
-        print "new position is {}".format(new_position)
-        # move(x=new_position[0], y=new_position[1], x_destination=new_position[0], y_destination=new_position[1] + 1)
-        move_down(x=new_position[0], y=new_position[1])
+        move(x=new_position[0], y=new_position[1])
     else:
-        print "...cannot move DOWN"
-        new_position = update_current_position(x, y)
-        print "...current position remains {}".format(new_position)
+        pass
 
-
-def move_left(x, y):
-    # TODO replace with for loop
-
-    if if_destination_reached(x, y, destination[0], destination[1]):
-        print "Tada!"
-
-    elif if_eligible_to_move(x, y, x - 1, y):  # Down!
-        print "...moving LEFT"
+    if if_eligible_to_move(x - 1, y, x, y):  # LEFT!
         new_position = update_current_position(x - 1, y)
-        print "new position is {}".format(new_position)
-        move_left(x=new_position[0], y=new_position[1])
+        move(x=new_position[0], y=new_position[1])
     else:
-        print "...cannot move LEFT"
-        new_position = update_current_position(x, y)
-        print "...current position remains {}".format(new_position)
+        pass
 
 
-print "Current Position is ({},{})".format(starting_position[0], starting_position[1])
-move_left(starting_position[0], starting_position[1])
-move_down(starting_position[0], starting_position[1])
+move(starting_position[0], starting_position[1])
+print_grid_sexy()
 
 # region Unit-test for get_value_from_grid
 """

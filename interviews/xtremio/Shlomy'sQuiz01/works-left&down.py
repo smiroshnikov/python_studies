@@ -1,19 +1,20 @@
 from tabulate import tabulate
 from grid import GRID, GRID03, LEFTG
 
-global starting_position
+# region globals
+global starting_position, destination
 starting_position = (4, 3)
+destination = (0, 0)
 
-global destination
 
-destination = (0, 3)
+# endregion
 
 
 def print_grid_sexy():
     """
     just a nice print for tuple
     """
-    print tabulate(GRID)
+    print tabulate(LEFTG)
 
 
 def get_value_from_grid(x, y):
@@ -27,6 +28,15 @@ def get_value_from_grid(x, y):
 
 
 def if_eligible_to_move(x, y, x_destination, y_destination):
+    """
+    Validates that desired coordinates are valid and within grid
+    Compares values in source and destination
+    :param x: source x coordinate
+    :param y: source y coordinate
+    :param x_destination: destination x coordinate
+    :param y_destination: destination y coordinate
+    :return:
+    """
     if x >= len(GRID[0]) or (y >= len(GRID)) or x < 0 or y < 0 or x_destination > len(GRID[0]) or (y_destination >= len(GRID)) or x_destination < 0 or y_destination < 0:
         return False
     if get_value_from_grid(x, y) == get_value_from_grid(x_destination, y_destination):
@@ -35,57 +45,67 @@ def if_eligible_to_move(x, y, x_destination, y_destination):
 
 
 def update_current_position(x, y):
+    """
+    Returns a value from GRID
+    :param x: x coordinate
+    :param y: y coordinate
+    :return: value @ (x,y)
+    """
     current_position = (x, y)
     return current_position
 
 
 def if_destination_reached(x, y, x_destination, y_destination):
+    """
+    Validates if current location is destination
+    :param x: source x coordinate
+    :param y: source y coordinate
+    :param x_destination: x destination
+    :param y_destination: y destination
+    :return: True if success / False if fails
+    """
     #    print "input parameters x = {} y = {} vs dX = {} , dY = {}".format(x, y, x_destination, y_destination)
     if x == x_destination and y == y_destination:
-        print "You have reached your destination!"
-        return True  # we have reached our destination
+        return True
     else:
         return False
 
 
-def move_down(x, y):
+def move(x, y):
     # TODO replace with for loop
-
+    # TODO wrap this in a while loop with True as exit condition
+    # TODO add a counter for viable paths
+    """
+    Recursively moves to any direction that is valid
+    :param x: x coordinate
+    :param y: y coordinate
+    :return:
+    """
+    print "my current position is ({},{})".format(x, y)
     if if_destination_reached(x, y, destination[0], destination[1]):
-        print "Tada!"
+        print "True!"
 
     elif if_eligible_to_move(x, y, x, y + 1):  # Down!
-        print "...moving DOWN"
+        print "...moving down"
         new_position = update_current_position(x, y + 1)
-        print "new position is {}".format(new_position)
-        # move(x=new_position[0], y=new_position[1], x_destination=new_position[0], y_destination=new_position[1] + 1)
-        move_down(x=new_position[0], y=new_position[1])
-    else:
-        print "...cannot move DOWN"
-        new_position = update_current_position(x, y)
-        print "...current position remains {}".format(new_position)
+        move(x=new_position[0], y=new_position[1])
 
-
-def move_left(x, y):
-    # TODO replace with for loop
-
-    if if_destination_reached(x, y, destination[0], destination[1]):
-        print "Tada!"
-
-    elif if_eligible_to_move(x, y, x - 1, y):  # Down!
-        print "...moving LEFT"
+    elif if_eligible_to_move(x, y, x - 1, y):  # Left!
+        print "...moving left"
         new_position = update_current_position(x - 1, y)
-        print "new position is {}".format(new_position)
-        move_left(x=new_position[0], y=new_position[1])
-    else:
-        print "...cannot move LEFT"
-        new_position = update_current_position(x, y)
-        print "...current position remains {}".format(new_position)
+        move(x=new_position[0], y=new_position[1])
 
+    elif if_eligible_to_move(x, y, x + 1, y):  # Right!
+        print "...moving right"
+        new_position = update_current_position(x + 1, y)
+        move(x=new_position[0], y=new_position[1])
 
-print "Current Position is ({},{})".format(starting_position[0], starting_position[1])
-move_left(starting_position[0], starting_position[1])
-move_down(starting_position[0], starting_position[1])
+    elif if_eligible_to_move(x, y, x, y - 1):  # Up!
+        new_position = update_current_position(x, y - 1)
+        move(x=new_position[0], y=new_position[1])
+
+move(starting_position[0], starting_position[1])
+print_grid_sexy()
 
 # region Unit-test for get_value_from_grid
 """

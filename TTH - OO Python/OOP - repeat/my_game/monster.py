@@ -3,10 +3,11 @@ from game_assets import give_me_random_weapon_details
 
 
 class MonsterCharacter:
-    def __init__(self):
-        pass
+    def __init__(self, **kwargs):
+        self.min_hp = kwargs.get('min_hp', 1)
+        self.max_hp = kwargs.get('max_hp', 5)
 
-    hit_points = None
+
 
 
 class Goblin(MonsterCharacter):
@@ -15,3 +16,7 @@ class Goblin(MonsterCharacter):
     warfare = give_me_random_weapon_details()
     weapon = warfare[0]
     weapon_damage = warfare[1]
+
+
+class EliteGoblin(MonsterCharacter):
+    pass

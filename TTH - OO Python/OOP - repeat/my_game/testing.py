@@ -69,27 +69,13 @@ class Goblin(NewGenerationMonster):
     pass
 
 
-krogouth = Goblin(hp=3)
-print krogouth.hp
+if __name__ == '__main__':
+    krogouth = Goblin(hp=3)
+    print krogouth.hp
+    morgouth = NewGenerationMonster(hp=5100, weapon='Utigatana', sound='Fuck you ! ')  # passing arguments during instantiation for __init__ with (**kwargs) is different
+    print "Morgouuth has {} hp and is holding {} , he also has {} armor".format(morgouth.hp, morgouth.weapon, morgouth.color)
+    print morgouth.battle_cry()
 
-morgouth = NewGenerationMonster(hp=5100, weapon='Utigatana', sound='Fuck you ! ')  # passing arguments during instantiation for __init__ with (**kwargs) is different
-print "Morgouuth has {} hp and is holding {} , he also has {} armor".format(morgouth.hp, morgouth.weapon, morgouth.color)
-print morgouth.battle_cry()
-
-greguth = NewGenerationMonster(treasure_in_gold=(500, 'gold'), treasure_in_gems=(4, 'diamonds'))
-print "Greguth has {} {} in coins and {}  ".format(greguth.treasure_in_gold[0],
-                                                   greguth.treasure_in_gold[1], greguth.treasure_in_gems)
-
-# region old
-"""
-gorguth = AmuchBetterMonster()
-gorguth.hp = 100
-print gorguth.weapon, gorguth.hp, gorguth.battle_cry()
-slimey = BetterMonster(hp=3, weapon='Mace', color='blue', sound='Awwwwwwaaa!')
-slimey.sound = 'aqqqqaaa!  # can be overwritten'
-print slimey.battlecry()
-squieaky = SimpleMonster()
-squieaky.sound = 'squieeeeeekkk!'
-print squieaky.battle_cry()
-"""
-# endregion
+    greguth = NewGenerationMonster(treasure_in_gold=(500, 'gold'), treasure_in_gems=(4, 'diamonds'))
+    print "Greguth has {} {} in coins and {}  ".format(greguth.treasure_in_gold[0],
+                                                       greguth.treasure_in_gold[1], greguth.treasure_in_gems)

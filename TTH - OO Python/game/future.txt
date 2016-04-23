@@ -1,0 +1,4 @@
+# Weapon random generation
+# Armor generation
+# Potions
+# Monsters

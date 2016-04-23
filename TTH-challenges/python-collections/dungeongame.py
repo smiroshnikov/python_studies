@@ -55,8 +55,7 @@ def draw_map(player):
         else:
             print(tile.format('_'), end='')
 
-
-"""" game begins """
+    """" game - done begins """
 
 
 monster, door, player = get_locations()

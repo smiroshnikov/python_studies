@@ -2,3 +2,4 @@
 # Armor generation
 # Potions
 # Monsters
+# Player character - Iidwuurliik

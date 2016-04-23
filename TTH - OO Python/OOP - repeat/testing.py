@@ -1,13 +1,18 @@
 from random import choice
+from random import randint
 
 # TTH - repeating , expires May 5th
 # namespace = encapsulation
 # message passing = methods - functions that belong to classes
-weapons = ('Sword', 'Axe', 'Mace', 'Dagger', 'Staff', 'Marakumo', 'Greatsword', 'Spear', 'Bow')
-colors = ('Blue', 'Red', 'Yellow', 'Black')
+global WEAPONS
+global COLORS
+
+WEAPONS = ('Sword', 'Axe', 'Mace', 'Dagger', 'Staff', 'Marakumo', 'Greatsword', 'Spear', 'Bow')
+COLORS = ('Blue', 'Red', 'Yellow', 'Black')
 
 
-class roaring_monster:
+# region old classes
+class SimpleMonster:
     """
     this is very lame representation of a class we should use __init__ to have values that instance of a class will begin with
     """
@@ -29,7 +34,7 @@ class BetterMonster:
 
 
 class AmuchBetterMonster:  # used random method in class instantiation
-    def __init__(self, hp=1, weapon=choice(weapons), color='red', sound='hsss'):
+    def __init__(self, hp=1, weapon=choice(WEAPONS), color='red', sound='hsss'):
         self.hp = hp
         self.weapon = weapon
         self.color = color
@@ -39,11 +44,15 @@ class AmuchBetterMonster:  # used random method in class instantiation
         return self.sound.upper() + '!'
 
 
-class NewGenerationMonster:  # used random method in class instantiation via kwargs
+# endregion
+
+
+class NewGenerationMonster(object):  # used random method in class instantiation via kwargs
+    # using ClassName(object) explicitly is required if I need my code to run in python 2 and python 3
     def __init__(self, **kwargs):
         self.hp = kwargs.get('hp', 1)  # override complete!
-        self.weapon = kwargs.get('weapon', choice(weapons))
-        self.color = kwargs.get('color', choice(colors))
+        self.weapon = kwargs.get('weapon', choice(WEAPONS))
+        self.color = kwargs.get('color', choice(COLORS))
         self.sound = kwargs.get('sound', 'hsssss')
         """
         allowing to override defaults makes a more friendly class
@@ -56,6 +65,13 @@ class NewGenerationMonster:  # used random method in class instantiation via kwa
         return self.sound.upper() + '!'
 
 
+class Goblin(NewGenerationMonster):
+    pass
+
+
+krogouth = Goblin(hp=3)
+print krogouth.hp
+
 morgouth = NewGenerationMonster(hp=5100, weapon='Utigatana', sound='Fuck you ! ')  # passing arguments during instantiation for __init__ with (**kwargs) is different
 print "Morgouuth has {} hp and is holding {} , he also has {} armor".format(morgouth.hp, morgouth.weapon, morgouth.color)
 print morgouth.battle_cry()
@@ -64,15 +80,16 @@ greguth = NewGenerationMonster(treasure_in_gold=(500, 'gold'), treasure_in_gems=
 print "Greguth has {} {} in coins and {}  ".format(greguth.treasure_in_gold[0],
                                                    greguth.treasure_in_gold[1], greguth.treasure_in_gems)
 
+# region old
 """
 gorguth = AmuchBetterMonster()
 gorguth.hp = 100
 print gorguth.weapon, gorguth.hp, gorguth.battle_cry()
-
 slimey = BetterMonster(hp=3, weapon='Mace', color='blue', sound='Awwwwwwaaa!')
 slimey.sound = 'aqqqqaaa!  # can be overwritten'
 print slimey.battlecry()
-squieaky = roaring_monster()
+squieaky = SimpleMonster()
 squieaky.sound = 'squieeeeeekkk!'
 print squieaky.battle_cry()
 """
+# endregion

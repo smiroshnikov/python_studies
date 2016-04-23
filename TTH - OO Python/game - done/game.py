@@ -14,7 +14,7 @@ from random import randint
 # monster turn
 # player turn
 # cleanup
-# check if game is over player dead OR monsters are dead
+# check if game - done is over player dead OR monsters are dead
 # repeat everything besides setup
 
 

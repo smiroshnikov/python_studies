@@ -29,11 +29,11 @@ class BetterMonster:
         self.color = color
         self.sound = sound
 
-    def battlecry(self):
+    def battle_cry(self):
         return self.sound.upper()
 
 
-class AmuchBetterMonster:  # used random method in class instantiation
+class AMuchBetterMonster:  # used random method in class instantiation
     def __init__(self, hp=1, weapon=choice(WEAPONS), color='red', sound='hsss'):
         self.hp = hp
         self.weapon = weapon

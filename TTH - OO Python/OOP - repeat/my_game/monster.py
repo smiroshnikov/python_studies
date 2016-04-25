@@ -35,6 +35,7 @@ class MonsterCharacter:
                                                                self.armor_class)
 
     def deal_damage(self):
+        """ lets implement here a berserker rage chance !"""
         return randint(self.min_dmg, self.max_dmg)
 
 

@@ -72,7 +72,7 @@ experience
 experiece
 can
 be
-strutured
+structured
 like
 this - ammount: level
 character_experience

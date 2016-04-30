@@ -50,3 +50,14 @@ Warhammer,Miss!,Dodged
 Warhammer,Miss!,Dodged
 Sword,Miss!,Dodged
 Warhammer,Hit!,7
+weapon,hit/miss,damage
+Short_Bow,Hit!,1
+Halberd,Hit!,15
+Sword,Miss!,Dodged
+Warhammer,Hit!,7
+Warhammer,Hit!,7
+Short_Bow,Hit!,2
+Sword,Miss!,Dodged
+Sword,Hit!,5
+Sword,Miss!,Dodged
+Halberd,Miss!,Dodged

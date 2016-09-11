@@ -42,6 +42,8 @@ print "{} is {} and has {} hp".format(chaos.name, chaos, chaos.hp)
 print "{} is {} and has {} hp".format(xedofimuth.name, xedofimuth, xedofimuth.hp)
 print chaos.abilities
 
+# TODO
+"""
 playerClass
 structure:
 
@@ -85,10 +87,6 @@ per
 level
 player
 can
-choose
-1
-out
-of
-2
-abilities
+choose 1 out of 2 abilities
 e.g - {1: ["mind blast", "graft weapon"], 2: ["levitate", ]}
+"""

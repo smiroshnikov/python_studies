@@ -1,6 +1,7 @@
 from random import randint
 from random import choice
 
+
 # region globals
 COLORS = ['White', 'Red', 'Blue', 'Green', 'Black']
 ARMOR_CLASS = {"Light Armor": 1,
@@ -35,7 +36,10 @@ class MonsterCharacter:
                                                                self.armor_class)
 
     def deal_damage(self):
-        """ lets implement here a berserker rage chance !"""
+        """ lets implement here a berserk rage chance !
+            meaning double , triple attack chance , strong attack ,
+            fumble attack etc.
+        """
         return randint(self.min_dmg, self.max_dmg)
 
 

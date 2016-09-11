@@ -66,6 +66,7 @@ with open('combat_log.csv', 'a') as csvfile:
     fieldnames = ['weapon', 'hit/miss', 'damage']
     weapon_to_csv = csv.DictWriter(csvfile, fieldnames=fieldnames)
     weapon_to_csv.writeheader()
+
     # TODO add empty line or timestamp
 
     for _ in range(0, 10):
